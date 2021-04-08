@@ -1,0 +1,26 @@
+{
+    "name": "otcs-webreport",
+    "displayName": "OTCS WebReport",
+    "description": "Open Text Web Report View",
+    "version": "0.0.1",
+    "publisher": "netea",
+    "engines": {
+        "vscode": "^1.55.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "wrv",
+            "aliases": ["WebReport", "wrv"],
+            "extensions": ["wrv"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "wrv",
+            "scopeName": "source.wrs",
+            "path": "./syntaxes/wrv.tmLanguage.json"
+        }]
+    }
+}
