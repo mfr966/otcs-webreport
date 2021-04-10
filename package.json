@@ -1,11 +1,22 @@
 {
     "name": "otcs-webreport",
     "displayName": "OTCS WebReport",
-    "description": "Open Text Web Report View",
+    "description": "Provides syntax highlighting for Open Text Web Report Views for MS VSC",
     "version": "0.0.1",
-    "publisher": "netea",
-    "engines": {
-        "vscode": "^1.55.0"
+    "publisher": "mfr966",
+    "author": {
+        "name": "Michael Fromme",
+        "email": "mfromme@acm.org"
+    },
+    "license": "MIT",
+    "licenses": [
+      {
+        "type": "MIT",
+        "url": "https://github.com/prantlf/vscode-oscript/blob/master/LICENSE"
+      }
+    ],
+      "engines": {
+        "vscode": "^1.50.0"
     },
     "categories": [
         "Programming Languages"
@@ -19,7 +30,7 @@
         }],
         "grammars": [{
             "language": "wrv",
-            "scopeName": "source.wrs",
+            "scopeName": "source.wrv",
             "path": "./syntaxes/wrv.tmLanguage.json"
         }]
     }

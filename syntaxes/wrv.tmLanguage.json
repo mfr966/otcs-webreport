@@ -2,31 +2,82 @@
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"name": "WebReport",
 	"patterns": [
-		{
-			"include": "#keywords"
-		},
-		{
-			"include": "#strings"
-		}
+		{ "include": "#keywords" },
+		{ "include": "#comments" }
 	],
 	"repository": {
 		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.wrv",
-				"match": "\\b(if|while|for|return)\\b"
-			}]
-		},
-		"strings": {
-			"name": "string.quoted.double.wrv",
-			"begin": "\"",
-			"end": "\"",
 			"patterns": [
 				{
+					"begin": "(?i)(\\[LL_WEBREPORT_[A-Z_]+)\\b",
+					"beginCaptures": {
+						"1": { "name": "keyword.control.wrv" }
+					},
+					"end": "\\/\\]",
+					"patterns": [
+						{ "include": "#strings" }
+					]
+				},
+				{
+					"begin": "(?i)(\\[LL_REPTAG_((![A-Z0-9_]+)|([&$A-Z0-9_]*)))\\b",
+					"beginCaptures": {
+						"1": { "name": "keyword.other" },
+						"3": { "name": "variable.name.wrv" }
+					},
+					"end": "\\/\\]",
+					"patterns": [
+						{ "include": "#strings" }
+					]
+				}
+			]
+		},
+		"strings": {
+			"patterns": [
+				{ "include": "#string.double_quoted" },
+				{ "include": "#string.single_quoted"}
+			],
+			"repository": {
+				"string.double_quoted": {
+					"name": "string.quoted.double.wrv",
+					"begin": "\"",
+					"end": "\"",
+					"patterns": [
+						{ "include": "#string.single_quoted"},
+						{ "include": "#string.character.escaped" },
+						{ "include": "#keywords" }
+					]
+				},
+				"string.single_quoted": {
+					"name": "string.quoted.single.wrv",
+					"begin": "'",
+					"end": "'",
+					"patterns": [
+						{ "include": "#string.double_quoted"},
+						{ "include": "#string.character.escaped" },
+						{ "include": "#keywords" }
+					]
+				},
+				"string.character.escaped": {
 					"name": "constant.character.escape.wrv",
 					"match": "\\\\."
+				}
+
+			}
+		},
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.line.wrv",
+					"begin": "\\[//",
+					"end": "(?<=\\n)(?<!\\\\\\n)"
+				},
+				{
+					"name": "comment.block.wrv",
+					"begin": "\\[/*",
+					"end": "\\*\\/\\]"
 				}
 			]
 		}
 	},
-	"scopeName": ""
+	"scopeName": "source.wrv"
 }
