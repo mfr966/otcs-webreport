@@ -12,12 +12,13 @@
     "licenses": [
       {
         "type": "MIT",
-        "url": "https://github.com/prantlf/vscode-oscript/blob/master/LICENSE"
+        "url": "https://github.com/mfr966/otcs-webreport/blob/master/LICENSE"
       }
     ],
       "engines": {
         "vscode": "^1.50.0"
     },
+    "repository": { "url": "https://github.com/mfr966/otcs-webreport"},
     "categories": [
         "Programming Languages"
     ],
