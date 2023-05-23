@@ -2,7 +2,7 @@
     "name": "otcs-webreport",
     "displayName": "OTCS WebReport",
     "description": "Provides syntax highlighting for Open Text Web Report Views for MS VSC",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "publisher": "mfr966",
     "author": {
         "name": "Michael Fromme",

@@ -11,6 +11,6 @@ Syntax highlighting and bracket matching.
 The standard extension for web report view files is ".wrv".
 
 ## License
-Copyright (c) 2021 Michael Fromme
+Copyright (c) 2021-2023 Michael Fromme
 
 Licensed under the MIT license.

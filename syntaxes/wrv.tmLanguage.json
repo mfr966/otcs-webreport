@@ -15,19 +15,73 @@
 					},
 					"end": "\\/\\]",
 					"patterns": [
-						{ "include": "#strings" }
+						{ "include": "#strings" },
+						{ "include": "#subtags" },
+						{ "include": "#keywords" }
 					]
 				},
 				{
-					"begin": "(?i)(\\[LL_REPTAG_((![A-Z0-9_]+)|([&$A-Z0-9_]*)))\\b",
+					"begin": "(?i)(\\[LL_REPTAG_((![A-Z0-9_]+)|(&[A-Z0-9_]+)|(\\$[A-Z0-9_]+)|(%[A-Z0-9_]+)|([A-Z0-9_]+)|(\\@[A-Z0-9_]+)))\\b",
 					"beginCaptures": {
 						"1": { "name": "keyword.other" },
-						"3": { "name": "variable.name.wrv" }
+						"3": { "name": "variable.name.wrv" },
+						"4": { "name": "variable.parameter" },
+						"5": { "name": "variable.other" },
+						"6": { "name": "variable.other" },
+						"7": { "name": "keyworkd.other" },
+						"8": { "name": "variable_other" }
 					},
 					"end": "\\/\\]",
 					"patterns": [
-						{ "include": "#strings" }
+						{ "include": "#strings" },
+						{ "include": "#subtags" },
+						{ "include": "#keywords" }
 					]
+				},
+				{
+					"begin": "(?i)(\\[LL_REPTAG=([A-Z0-9_]+))\\b",
+					"beginCaptures": {
+						"1": { "name": "keyword.other" },
+						"2": { "name": "variable.other.wrv" }
+					},
+					"end": "\\/\\]",
+					"patterns": [
+						{ "include": "#strings" },
+						{ "include": "#subtags" },
+						{ "include": "#keywords" }
+					]
+				},
+				{
+					"begin": "(?i)(\\[LL_REPTAG_)\\b",
+					"beginCaptures": {
+						"1": { "name": "keyword.other" }
+					},
+					"end": "\\/\\]",
+					"patterns": [
+						{ "include": "#strings" },
+						{ "include": "#subtags" },
+						{ "include": "#keywords" }
+					]
+				}
+			]
+		},
+		"subtags": {
+			"patterns": [
+				{
+					"begin": "(?i)(SETVAR:([A-Z0-9_]+))",
+					"end":   "\\b",
+					"beginCaptures": {
+						"1": { "name": "keyword.other" },
+						"2": { "name": "variable.name" }
+					}
+				},
+				{
+					"begin": "(?i)(VAR:([A-Z0-9_]+))",
+					"end":   "\\b",
+					"beginCaptures": {
+						"1": { "name": "keyword.other" },
+						"2": { "name": "variable.name" }
+					}
 				}
 			]
 		},
@@ -69,11 +123,11 @@
 				{
 					"name": "comment.line.wrv",
 					"begin": "\\[//",
-					"end": "(?<=\\n)(?<!\\\\\\n)"
+					"end": "(?<=\\n)"
 				},
 				{
 					"name": "comment.block.wrv",
-					"begin": "\\[/*",
+					"begin": "\\[/\\*",
 					"end": "\\*\\/\\]"
 				}
 			]

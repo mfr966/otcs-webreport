@@ -2,8 +2,11 @@
 
 All notable changes to the "otcs-webreport" extension will be documented in this file.
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
-## [Unreleased]
+## Version 0.1
+
+ - improved grammar, resolved a bug with unhandled tags being resolved as comments
+
+## Version 0.0.1
 
 - Initial release
